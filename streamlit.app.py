@@ -14,7 +14,7 @@ streamlit.text( "🥞 Omega 3 & Blueberry Oatmeal" + "\n" + "🥗" + "Kale, Spin
 streamlit.header("🍌 🍎 Build your own smoothie 🥝 🍇") 
 
 #let's put a picklist here so they can pick the fruit they want to include
-streamlit.multiselect("Pick some fruits", list(my_fruit_list.index))
+streamlit.multiselect("Pick some fruits", list(my_fruit_list.index),['Avocado','Strawberries'])
 
 #display the table on the page
 streamlit.dataframe(my_fruit_list)

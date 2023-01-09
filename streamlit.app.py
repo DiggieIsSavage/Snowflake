@@ -4,7 +4,7 @@ import pandas as pd
 
 #declaring variables and then selecting the name of the fruit as the index
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
-my_fruit_list = my_fruit.list.set_index("Fruit")
+my_fruit_list = my_fruit_list.set_index("Fruit")
 
 #displaying objects in streamlit
 streamlit.title("My Parents New Healthy Diner")

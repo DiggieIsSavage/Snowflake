@@ -6,7 +6,7 @@ import requests
 #declaring variables and then selecting the name of the fruit as the index
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index("Fruit")
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 
 #displaying objects in streamlit
 streamlit.title("My Parents New Healthy Diner")
@@ -26,7 +26,7 @@ streamlit.dataframe(fruits_to_show)
 #putting in new header and text in new app
 # streamlit.text(fruityvice_response) # will not show a value as you need to work on the format
 streamlit.header('Fruityvice Fruit Advice!')
-streamlit.text(fruityvice_response.json())
+#streamlit.text(fruityvice_response.json())
 
 #take the json version of the response and normalize it
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())

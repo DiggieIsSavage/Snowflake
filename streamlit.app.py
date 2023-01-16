@@ -26,6 +26,5 @@ streamlit.dataframe(fruits_to_show)
 #putting in new header and text in new app
 streamlit.text(fruityvice_response)
 streamlit.header('Fruityvice Fruit Advice!')
-#streamlit.text(fruityvice_response.json())
+streamlit.text(fruityvice_response.json())
 
-streamlit.datarame(fruityvice_response)

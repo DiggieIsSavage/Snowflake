@@ -2,6 +2,7 @@
 import streamlit
 import pandas as pd
 import requests
+import snowflake.connector
 
 #declaring variables and then selecting the name of the fruit as the index
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")

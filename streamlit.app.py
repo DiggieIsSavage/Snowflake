@@ -1,8 +1,9 @@
 #importing libraries
 import streamlit
-import pandas as pd
-import requests
+#import pandas as pd
+#import requests
 import snowflake.connector
+from urllib.error import URLError
 
 #declaring variables and then selecting the name of the fruit as the index
 my_fruit_list = pd.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
@@ -38,6 +39,9 @@ fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 #output it in the screen as a table
 streamlit.dataframe(fruityvice_normalized)
 
+
+#to stop a streamlit code below during troubleshooting use the script below
+streamlit.stop()
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()

@@ -25,6 +25,15 @@ fruits_to_show = my_fruit_list.loc[fruits_selected]
 #display the table on the page
 streamlit.dataframe(fruits_to_show)
 
+#create the repeatable code block (called a function)
+def get_fruityvice_data(this_fruit_choice):
+    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+    #streamlit.write('The user entered ', fruit_choice)
+    #streamlit.text(fruityvice_response.json())
+    #take the json version of the response and normalize it
+    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    return fruityvice_normalized
+
 #putting in new header and text in new app
 # streamlit.text(fruityvice_response) # will not show a value as you need to work on the format
 streamlit.header('Fruityvice Fruit Advice!')
@@ -34,11 +43,8 @@ try:
   if not fruit_choice:
     streamlit.error("Please select a fruit to get information.")
   else: 
-    fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
-    #streamlit.write('The user entered ', fruit_choice)
-    #streamlit.text(fruityvice_response.json())
-    #take the json version of the response and normalize it
-    fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
+    back_from_function = get_fruityvice_data(fruit_choice)
+  
     #output it in the screen as a table
     streamlit.dataframe(fruityvice_normalized)
 
